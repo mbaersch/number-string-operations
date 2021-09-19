@@ -1,11 +1,3 @@
-﻿___TERMS_OF_SERVICE___
-
-By creating or modifying this file you agree to Google Tag Manager's Community
-Template Gallery Developer Terms of Service available at
-https://developers.google.com/tag-manager/gallery-tos (or such other URL as
-Google may provide), as modified from time to time.
-
-
 ___INFO___
 
 {
@@ -14,7 +6,9 @@ ___INFO___
   "version": 1,
   "securityGroups": [],
   "displayName": "Number \u0026 String Operations",
-  "categories": ["UTILITY"],
+  "categories": [
+    "UTILITY"
+  ],
   "description": "Set of Math and string manipulation operations in case you need to do some \"transformation light\" with event data and request parameters",
   "containerContexts": [
     "SERVER"
@@ -160,10 +154,6 @@ ___TEMPLATE_PARAMETERS___
       {
         "value": "toUpperCase",
         "displayValue": "toUpperCase"
-      },
-      {
-        "value": "trim",
-        "displayValue": "trim"
       },
       {
         "value": "replace",
@@ -412,7 +402,7 @@ switch(tp) {
       case "toUpperCase": rs = op1.toUpperCase(); break;
       case "replace": rs = op1.replace(op2s, op3s); break;
       case "slice": rs = op1.slice(op2, op3); break;
-      case "substr": rs = op1.substr(op2, op3); break;
+      case "substr": rs = op1.substring(op2, op3+op2); break;
       case "substring": rs = op1.substring(op2, op3); break;
       case "match": var fnd = op1.match(op2s);          
         if (fnd) { rs = fnd[0]; }    
