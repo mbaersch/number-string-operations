@@ -232,8 +232,8 @@ ___TEMPLATE_PARAMETERS___
     "enablingConditions": [
       {
         "paramName": "functionType",
-        "paramValue": "math",
-        "type": "NOT_EQUALS"
+        "paramValue": "calc",
+        "type": "EQUALS"
       },
       {
         "paramName": "mathMethodName",
@@ -247,13 +247,38 @@ ___TEMPLATE_PARAMETERS___
       },
       {
         "paramName": "stringMethodName",
-        "paramValue": "sha256",
-        "type": "NOT_EQUALS"
+        "paramValue": "indexOf",
+        "type": "EQUALS"
       },
       {
         "paramName": "stringMethodName",
-        "paramValue": "base64",
-        "type": "NOT_EQUALS"
+        "paramValue": "lastIndexOf",
+        "type": "EQUALS"
+      },
+      {
+        "paramName": "stringMethodName",
+        "paramValue": "match",
+        "type": "EQUALS"
+      },
+      {
+        "paramName": "stringMethodName",
+        "paramValue": "replace",
+        "type": "EQUALS"
+      },
+      {
+        "paramName": "stringMethodName",
+        "paramValue": "slice",
+        "type": "EQUALS"
+      },
+      {
+        "paramName": "stringMethodName",
+        "paramValue": "substr",
+        "type": "EQUALS"
+      },
+      {
+        "paramName": "stringMethodName",
+        "paramValue": "substring",
+        "type": "EQUALS"
       }
     ]
   },
@@ -439,6 +464,6 @@ scenarios: []
 
 ___NOTES___
 
-Created on 19.9.2021, 20:22:27
+Created on 19.9.2021, 20:53:00
 
 
