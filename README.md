@@ -19,7 +19,7 @@ Depending on the operation to perform, one up to three parameter values can be d
 ### Formatting Results
 In case of calculations or math operations you can pick a desired format for the result. This can be a rounded or truncated integer or a fixed value with two decimal digits.
 
-##Examples
+## Examples
 
 Type | Operation / Function | Parameter 1 |  Parameter 2 |  Parameter 3 | JavaScript Equivalent | Result 
 ---- | ---- | ---- | ---- | ---- | ---- | ----
