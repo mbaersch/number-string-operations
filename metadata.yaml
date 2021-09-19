@@ -2,5 +2,5 @@
 homepage: "https://www.markus-baersch.de"
 versions:
   # Latest version
-  - sha: a6ef72f0b4fbf33c4b7cca16cdd7fd56c1599bcd
+  - sha: 22b14e8250d961b3978ca738033d2dc1765b3d27
     changeNotes: Initial release.
