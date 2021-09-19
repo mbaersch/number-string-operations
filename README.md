@@ -24,6 +24,14 @@ In case of calculations or math operations you can pick a desired format for the
 Type | Operation / Function | Parameter 1 |  Parameter 2 |  Parameter 3 | JavaScript Equivalent | Result 
 ---- | ---- | ---- | ---- | ---- | ---- | ----
 Caculate | add | 2 |  5.5 |  -unused- | 2 + 5.5 | 7.5 
-Math Methods | add | 2 |  5.5 |  -unused- | 2 + 5.5 | 7.5 
+Math Methods | ceil | 42.6 |  -unused- |  -unused- | Math.ceil(42.6) | 43
+Math Methods | min | 42.6 |  2 |  -unused- | Math.min(42.6, 2) | 2
+String Functions | indexOf | Frodo |  o |  -unused- | "Frodo".indexOf('o') | 2
+String Functions | lastIndexOf | Frodo |  o |  -unused- | "Frodo".indexOf('o') | 4
+String Functions | toUpperCase | Frodo |  -unused- |  -unused- | "Frodo".toUpperCase() | "FRODO"
+String Functions | substr | Frodo |  2 |  3 | "Frodo".substr(2,3) | "odo"
+String Functions | substring | Frodo |  2 |  3 | "Frodo".substr(2,3) | "o"
+
+
 
 
