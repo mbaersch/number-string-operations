@@ -6,15 +6,17 @@ Create a new variable using this template to...
 
 - perform **calculations** with two variables
 - use methods from **"Math"** to mutate variable values or
-- perform **string operstions** in a single input variable
+- manipulate **strings** from a single input variable (and additional parameters, depending on the string function)
 
 ## Usage
-After selecting one of the three types an operation / acfunction can be picked from a drop down list. 
+After selecting one of the three types an operation / a function can be picked from a drop down list. 
 
-Depending on the operation to perform, one up to three parameter values can be defined. 
+Depending on the operation, one up to three parameter values can be defined. 
 
 - For calculations, the first and second parameter are used as operands. You can use variables or direct constant values for all parameter fields. 
 - Math and string operations usually take the first parameter as input and the others are used as neccessary function parameters.
+
+All parameters are transformed to the suitable format by the template.
 
 ### Formatting Results
 In case of calculations or math operations you can pick a desired format for the result. This can be a rounded or truncated integer or a fixed value with two decimal digits.
