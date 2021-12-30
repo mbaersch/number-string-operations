@@ -1,6 +1,17 @@
 # number-string-operations
 Set of Math and string manipulation operations (Custom Variable Template for Server-Side Google Tag Manager)
 
+## Change Notes
+New methods in "Math":
+- pow
+- sqrt
+
+New methods for strings:
+- toFixed (variable decimals)
+- toNumber (removes thousand separators and converts values with comma as decimal separators)
+- replaceAll
+- allows empty values as parameter 3 for replace / replaceAll
+
 ## What it does
 Create a new variable using this template to...
 
