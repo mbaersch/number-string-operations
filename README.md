@@ -2,6 +2,7 @@
 Set of Math and string manipulation operations (Custom Variable Template for Server-Side Google Tag Manager)
 
 ## Change Notes
+### 2021/12/30
 New methods in "Math":
 - pow
 - sqrt
