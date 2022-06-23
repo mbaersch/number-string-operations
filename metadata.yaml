@@ -2,8 +2,8 @@
 homepage: "https://www.markus-baersch.de"
 versions:
   # Latest version
-  - sha: fc2e3fbe85a4e40d5be7dcda4ede85ae7b33c801
-    changeNotes: New methods in Math and Strings. See readme on Github for details.
+  - sha: 00119b009340976d0c800ce8fd01e9822d50bc93
+    changeNotes: added string result conversion. New string method split+extract to get item from split result by index
   # Older versions
-  - sha: e264c6ba3835a932a3a0b5b4f484da62852cc691
-    changeNotes: Initial release.
+  - sha: fc2e3fbe85a4e40d5be7dcda4ede85ae7b33c801
+    changeNotes: New methods in Math: pow, sqrt. Added methods for strings: toFixed (variable decimals), toNumber (removes thousand separators and converts values with comma as decimal separators), replaceAll. Allows empty values as parameter 3 for replace / replaceAll.
