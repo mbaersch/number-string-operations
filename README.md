@@ -4,6 +4,7 @@ Set of Math and string manipulation operations (Custom Variable Template for Ser
 ## Change Notes
 ### 2022/06/23
 New string method "split+extract": splits string at first parameter by second parameter delimiter and gets array item from split result by third parameter index
+
 New result conversion type "Convert To String" 
 
 
