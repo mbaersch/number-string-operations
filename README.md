@@ -2,6 +2,11 @@
 Set of Math and string manipulation operations (Custom Variable Template for Server-Side Google Tag Manager)
 
 ## Change Notes
+### 2022/06/23
+New string method "split+extract": splits string at first parameter by second parameter delimiter and gets array item from split result by third parameter index
+New result conversion type "Convert To String" 
+
+
 ### 2021/12/30
 New methods in "Math":
 - pow
@@ -31,7 +36,7 @@ Depending on the operation, one up to three parameter values can be defined.
 All parameters are transformed to the suitable format by the template.
 
 ### Formatting Results
-In case of calculations or math operations you can pick a desired format for the result. This can be a rounded or truncated integer or a fixed value with two decimal digits.
+In case of calculations or math operations you can pick a desired format for the result. This can be a string, rounded or truncated integer or a fixed value with two decimal digits.
 
 ## Examples
 
@@ -45,7 +50,4 @@ String Functions | lastIndexOf | Frodo |  o |  -unused- | "Frodo".indexOf('o') |
 String Functions | toUpperCase | Frodo |  -unused- |  -unused- | "Frodo".toUpperCase() | "FRODO"
 String Functions | substr | Frodo |  2 |  3 | "Frodo".substr(2,3) | "odo"
 String Functions | substring | Frodo |  2 |  3 | "Frodo".substr(2,3) | "o"
-
-
-
-
+String Functions | split.extract | first,second,third |  , |  1 | "first,second,third".split(",")[1] | "second"
