@@ -210,6 +210,10 @@ ___TEMPLATE_PARAMETERS___
       {
         "value": "replaceAll",
         "displayValue": "replaceAll"
+      },
+      {
+        "value": "splitSpecial",
+        "displayValue": "split+extract (split, then get item at param 3 index)"
       }
     ],
     "simpleValueType": true,
@@ -312,6 +316,16 @@ ___TEMPLATE_PARAMETERS___
         "paramName": "stringMethodName",
         "paramValue": "replaceAll",
         "type": "EQUALS"
+      },
+      {
+        "paramName": "stringMethodName",
+        "paramValue": "split",
+        "type": "EQUALS"
+      },
+      {
+        "paramName": "stringMethodName",
+        "paramValue": "splitSpecial",
+        "type": "EQUALS"
       }
     ]
   },
@@ -345,6 +359,11 @@ ___TEMPLATE_PARAMETERS___
         "paramName": "stringMethodName",
         "paramValue": "substring",
         "type": "EQUALS"
+      },
+      {
+        "paramName": "stringMethodName",
+        "paramValue": "splitSpecial",
+        "type": "EQUALS"
       }
     ]
   },
@@ -369,6 +388,10 @@ ___TEMPLATE_PARAMETERS___
       {
         "value": "floor",
         "displayValue": "Convert To Integer (Truncated)"
+      },
+      {
+        "value": "string",
+        "displayValue": "Convert To String"
       }
     ],
     "simpleValueType": true,
@@ -451,6 +474,11 @@ switch(tp) {
       case "indexOf": rs = op1.indexOf(op2s); break;
       case "lastIndexOf": rs = op1.lastIndexOf(op2s); break;
       case "split": rs = op1.split(op2s); break;
+      case "splitSpecial": 
+        rs = op1.split(op2s); 
+        if (rs.length >= op3)
+          rs = rs[op3s];
+        break;
       case "toLowerCase": rs = op1.toLowerCase(); break;
       case "toUpperCase": rs = op1.toUpperCase(); break;
       case "replace": rs = op1.replace(op2s, op3s); break;
@@ -482,9 +510,10 @@ switch(tp) {
       
 const rt = data.resultTransformation;
 if (rt == 'round') return Math.round(rs); else
+if (rt == 'string') return makeString(rs); else
 if (rt == 'floor') return Math.floor(rs); else
-if (rt == 'fixed') return makeNumber(Math.round(rs*100) / 100);
-else return rs;
+if (rt == 'fixed') return makeNumber(Math.round(rs*100) / 100); else
+return rs;
 
 
 ___TESTS___
