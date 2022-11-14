@@ -476,8 +476,7 @@ switch(tp) {
       case "split": rs = op1.split(op2s); break;
       case "splitSpecial": 
         rs = op1.split(op2s); 
-        if (rs.length >= op3)
-          rs = rs[op3s];
+        rs = (rs.length >= op3) ? rs[op3s] : undefined;
         break;
       case "toLowerCase": rs = op1.toLowerCase(); break;
       case "toUpperCase": rs = op1.toUpperCase(); break;
