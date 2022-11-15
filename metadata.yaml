@@ -1,8 +1,9 @@
 homepage: "https://www.markus-baersch.de"
+documentation: "https://github.com/mbaersch/number-string-operations#readme"
 versions:
   # Latest version
   - sha: 48314ffa381d82b63d82988c50c1f6433166f5a1
-    changeNotes: fixed split+extract: result for an index greater than array length was complete array instead of undefined 
+    changeNotes: fixed split+extract for index greater than array length  
   # Older versions  
   - sha: 00119b009340976d0c800ce8fd01e9822d50bc93
     changeNotes: added string result conversion. New string method split+extract to get item from split result by index
