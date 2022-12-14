@@ -3,7 +3,7 @@
 
 Set of Math and string manipulation operations 
 
-[![Template Status](https://img.shields.io/badge/Community%20Template%20Gallery%20Status-published-green)](https://tagmanager.google.com/gallery/#/owners/mbaersch/templates/number-string-operations)
+[![Template Status](https://img.shields.io/badge/Community%20Template%20Gallery%20Status-published-green)](https://tagmanager.google.com/gallery/#/owners/mbaersch/templates/number-string-operations) ![Repo Size](https://img.shields.io/github/repo-size/mbaersch/number-string-operations) ![License](https://img.shields.io/github/license/mbaersch/number-string-operations)
 
 ---
 
