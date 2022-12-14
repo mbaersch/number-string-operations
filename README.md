@@ -1,5 +1,11 @@
-# number-string-operations
-Set of Math and string manipulation operations (Custom Variable Template for Server-Side Google Tag Manager)
+# Number & String Operations
+**Custom Variable Template for Server-Side Google Tag Manager**
+
+Set of Math and string manipulation operations 
+
+[![Template Status](https://img.shields.io/badge/Community%20Template%20Gallery%20Status-published-green)](https://tagmanager.google.com/gallery/#/owners/mbaersch/templates/number-string-operations)
+
+---
 
 ## Change Notes
 ### 2022/06/23
