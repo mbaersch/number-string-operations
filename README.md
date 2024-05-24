@@ -8,6 +8,10 @@ Set of Math and string manipulation operations
 ---
 
 ## Change Notes
+
+### 2024/05/25
+New string methods "JSON.parse" & "JSON.stringify" for converting from / to objects
+
 ### 2022/06/23
 New string method "split+extract": splits string at first parameter by second parameter delimiter and gets array item from split result by third parameter index
 
