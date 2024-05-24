@@ -1,12 +1,4 @@
-___TERMS_OF_SERVICE___
-
-By creating or modifying this file you agree to Google Tag Manager's Community
-Template Gallery Developer Terms of Service available at
-https://developers.google.com/tag-manager/gallery-tos (or such other URL as
-Google may provide), as modified from time to time.
-
-
-___INFO___
+﻿___INFO___
 
 {
   "type": "MACRO",
@@ -122,14 +114,6 @@ ___TEMPLATE_PARAMETERS___
       {
         "value": "trunc",
         "displayValue": "trunc"
-      },
-      {
-        "value": "pow",
-        "displayValue": "pow"
-      },
-      {
-        "value": "sqrt",
-        "displayValue": "sqrt"
       }
     ],
     "simpleValueType": true,
@@ -198,30 +182,6 @@ ___TEMPLATE_PARAMETERS___
       {
         "value": "base64",
         "displayValue": "base64"
-      },
-      {
-        "value": "toFixed",
-        "displayValue": "toFixed (Param2 \u003d Decimals)"
-      },
-      {
-        "value": "toNumber",
-        "displayValue": "toNumber"
-      },
-      {
-        "value": "replaceAll",
-        "displayValue": "replaceAll"
-      },
-      {
-        "value": "splitSpecial",
-        "displayValue": "split+extract (split, then get item at param 3 index)"
-      },
-      {
-        "value": "jstringify",
-        "displayValue": "JSON.stringify"
-      },
-      {
-        "value": "jparse",
-        "displayValue": "JSON.parse"
       }
     ],
     "simpleValueType": true,
@@ -256,10 +216,7 @@ ___TEMPLATE_PARAMETERS___
     "simpleValueType": true,
     "valueValidators": [
       {
-        "type": "REGEX",
-        "args": [
-          "^.+$"
-        ]
+        "type": "NON_EMPTY"
       }
     ],
     "enablingConditions": [
@@ -312,31 +269,6 @@ ___TEMPLATE_PARAMETERS___
         "paramName": "stringMethodName",
         "paramValue": "substring",
         "type": "EQUALS"
-      },
-      {
-        "paramName": "stringMethodName",
-        "paramValue": "toFixed",
-        "type": "EQUALS"
-      },
-      {
-        "paramName": "mathMethodName",
-        "paramValue": "pow",
-        "type": "EQUALS"
-      },
-      {
-        "paramName": "stringMethodName",
-        "paramValue": "replaceAll",
-        "type": "EQUALS"
-      },
-      {
-        "paramName": "stringMethodName",
-        "paramValue": "split",
-        "type": "EQUALS"
-      },
-      {
-        "paramName": "stringMethodName",
-        "paramValue": "splitSpecial",
-        "type": "EQUALS"
       }
     ]
   },
@@ -370,11 +302,6 @@ ___TEMPLATE_PARAMETERS___
         "paramName": "stringMethodName",
         "paramValue": "substring",
         "type": "EQUALS"
-      },
-      {
-        "paramName": "stringMethodName",
-        "paramValue": "splitSpecial",
-        "type": "EQUALS"
       }
     ]
   },
@@ -399,10 +326,6 @@ ___TEMPLATE_PARAMETERS___
       {
         "value": "floor",
         "displayValue": "Convert To Integer (Truncated)"
-      },
-      {
-        "value": "string",
-        "displayValue": "Convert To String"
       }
     ],
     "simpleValueType": true,
@@ -431,12 +354,11 @@ ___TEMPLATE_PARAMETERS___
 
 ___SANDBOXED_JS_FOR_SERVER___
 
-//const log = require("logToConsole");
+const log = require("logToConsole");
 const Math = require("Math");
 const makeNumber = require('makeNumber');
 const makeString = require('makeString');
 const sha256Sync = require('sha256Sync');
-const JSON = require('JSON');
 const toBase64 = require('toBase64');
 
 var rs;
@@ -444,14 +366,6 @@ const tp = data.functionType;
 var op1 = makeNumber(data.op1);
 var op2 = makeNumber(data.op2);
 var op3 = makeNumber(data.op3);
-
-const replaceAll = function(str, oldstr, newstr) {
-  var rs = str;
-  if (oldstr === newstr) return rs;
-  while (rs.indexOf(oldstr) >= 0)
-    rs = rs.replace(oldstr, newstr);
-  return rs;
-};  
 
 switch(tp) {
   case "calc": 
@@ -473,60 +387,64 @@ switch(tp) {
       case "min": rs = Math.min(op1, op2); break;
       case "round": rs = Math.round(op1); break;
       case "trunc": rs = Math.floor(op1); break;
-      case "pow": rs = Math.pow(op1, op2); break;
-      case "sqrt": rs = Math.sqrt(op1); break;
     }    
     break;
   case "strings":
     op1 = makeString(data.op1);
-    var op2s = makeString(data.op2 || "");
-    var op3s = makeString(data.op3 || "");
+    var op2s = makeString(data.op2);
+    var op3s = makeString(data.op3);
     const sf = data.stringMethodName;
     switch(sf) {
       case "indexOf": rs = op1.indexOf(op2s); break;
       case "lastIndexOf": rs = op1.lastIndexOf(op2s); break;
       case "split": rs = op1.split(op2s); break;
-      case "splitSpecial": 
-        rs = op1.split(op2s); 
-        rs = (rs.length >= op3) ? rs[op3s] : undefined;
-        break;
       case "toLowerCase": rs = op1.toLowerCase(); break;
       case "toUpperCase": rs = op1.toUpperCase(); break;
       case "replace": rs = op1.replace(op2s, op3s); break;
-      case "replaceAll": rs = replaceAll(op1, op2s, op3s); break;
       case "slice": rs = op1.slice(op2, op3); break;
       case "substr": rs = op1.substring(op2, op3+op2); break;
       case "substring": rs = op1.substring(op2, op3); break;
-      case "toFixed": var mul = Math.pow(10, op2) ; rs = makeNumber(Math.round(op1*mul) / mul); break;
-      case "toNumber": 
-        var idxComma = op1.indexOf(","); 
-        var idxDot = op1.indexOf(".");
-        if ((idxComma > 0) && (idxDot > 0)) {
-          if (idxComma > idxDot) 
-            rs = replaceAll(replaceAll(op1, ".", ""), ",", ".");
-          else
-            rs = replaceAll(op1, ",", ""); 
-        } else if (idxComma > 0)
-          rs = replaceAll(op1, ",", ".");
-        rs = makeNumber(rs);
-        break;
       case "match": var fnd = op1.match(op2s);          
         if (fnd) { rs = fnd[0]; }    
         break;
       case "sha256": rs = sha256Sync(op1); break;  
       case "base64": rs = toBase64(op1); break;  
-      case "jstringify": rs = JSON.stringify(data.op1); break;  
-      case "jparse": rs = JSON.parse(data.op1); break;  
     }    
     break;
 }
       
 const rt = data.resultTransformation;
 if (rt == 'round') return Math.round(rs); else
-if (rt == 'string') return makeString(rs); else
 if (rt == 'floor') return Math.floor(rs); else
-if (rt == 'fixed') return makeNumber(Math.round(rs*100) / 100); else
-return rs;
+if (rt == 'fixed') return makeNumber(Math.round(rs*100) / 100);
+else return rs;
+
+
+___SERVER_PERMISSIONS___
+
+[
+  {
+    "instance": {
+      "key": {
+        "publicId": "logging",
+        "versionId": "1"
+      },
+      "param": [
+        {
+          "key": "environments",
+          "value": {
+            "type": 1,
+            "string": "debug"
+          }
+        }
+      ]
+    },
+    "clientAnnotations": {
+      "isEditedByUser": true
+    },
+    "isRequired": true
+  }
+]
 
 
 ___TESTS___
