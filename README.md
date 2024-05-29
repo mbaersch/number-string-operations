@@ -51,14 +51,36 @@ In case of calculations or math operations you can pick a desired format for the
 
 ## Examples
 
-Type | Operation / Function | Parameter 1 |  Parameter 2 |  Parameter 3 | JavaScript Equivalent | Result 
+Type | Operation / Function | Parameter 1 | Parameter 2 | Parameter 3 | JavaScript Equivalent | Result
 ---- | ---- | ---- | ---- | ---- | ---- | ----
-Caculate | add | 2 |  5.5 |  -unused- | 2 + 5.5 | 7.5 
-Math Methods | ceil | 42.6 |  -unused- |  -unused- | Math.ceil(42.6) | 43
-Math Methods | min | 42.6 |  2 |  -unused- | Math.min(42.6, 2) | 2
-String Functions | indexOf | Frodo |  o |  -unused- | "Frodo".indexOf('o') | 2
-String Functions | lastIndexOf | Frodo |  o |  -unused- | "Frodo".indexOf('o') | 4
-String Functions | toUpperCase | Frodo |  -unused- |  -unused- | "Frodo".toUpperCase() | "FRODO"
-String Functions | substr | Frodo |  2 |  3 | "Frodo".substr(2,3) | "odo"
-String Functions | substring | Frodo |  2 |  3 | "Frodo".substr(2,3) | "o"
-String Functions | split.extract | first,second,third |  , |  1 | "first,second,third".split(",")[1] | "second"
+Calculate | add | 2 | 5.5 | -unused- | 2 + 5.5 | 7.5
+Calculate | subtract | 5.5 | 2 | -unused- | 5.5 - 2 | 3.5
+Calculate | multiply | 2 | 5.5 | -unused- | 2 * 5.5 | 11
+Calculate | divide | 10 | 2 | -unused- | 10 / 2 | 5
+Math Methods | abs | -42.6 | -unused- | -unused- | Math.abs(-42.6) | 42.6
+Math Methods | ceil | 42.6 | -unused- | -unused- | Math.ceil(42.6) | 43
+Math Methods | floor | 42.6 | -unused- | -unused- | Math.floor(42.6) | 42
+Math Methods | max | 42.6 | 50 | -unused- | Math.max(42.6, 50) | 50
+Math Methods | min | 42.6 | 2 | -unused- | Math.min(42.6, 2) | 2
+Math Methods | round | 42.6 | -unused- | -unused- | Math.round(42.6) | 43
+Math Methods | trunc | 42.6 | -unused- | -unused- | Math.floor(42.6) | 42
+Math Methods | pow | 2 | 3 | -unused- | Math.pow(2, 3) | 8
+Math Methods | sqrt | 9 | -unused- | -unused- | Math.sqrt(9) | 3
+String Functions | indexOf | Frodo | o | -unused- | "Frodo".indexOf('o') | 2
+String Functions | lastIndexOf | Frodo | o | -unused- | "Frodo".lastIndexOf('o') | 4
+String Functions | split | first,second,third | , | -unused- | "first,second,third".split(',') | ["first", "second", "third"]
+String Functions | splitSpecial | first,second,third | , | 1 | "first,second,third".split(',')[1] | "second"
+String Functions | toLowerCase | Frodo | -unused- | -unused- | "Frodo".toLowerCase() | "frodo"
+String Functions | toUpperCase | Frodo | -unused- | -unused- | "Frodo".toUpperCase() | "FRODO"
+String Functions | replace | Frodo | o | a | "Frodo".replace('o', 'a') | "Frado"
+String Functions | replaceAll | Frodo | o | a | replaceAll("Frodo", 'o', 'a') | "Frada"
+String Functions | slice | Frodo | 1 | 3 | "Frodo".slice(1, 3) | "ro"
+String Functions | substr | Frodo | 2 | 3 | "Frodo".substring(2, 5) | "odo"
+String Functions | substring | Frodo | 2 | 3 | "Frodo".substring(2, 3) | "o"
+String Functions | toFixed | 3.14159 | 2 | -unused- | (3.14159).toFixed(2) | 3.14
+String Functions | toNumber | 1,234.56 | -unused- | -unused- | +(1,234.56) | 1234.56
+String Functions | match | Frodo | /o/ | -unused- | "Frodo".match(/o/) | ["o"]
+String Functions | sha256 | Hello, World! | -unused- | -unused- | sha256Sync("Hello, World!") | "dffd6021bb2bd5b0af676290809ec3a53191dd81c7f70a4b28688a362182986f"
+String Functions | base64 | Hello, World! | -unused- | -unused- | toBase64("Hello, World!") | "SGVsbG8sIFdvcmxkIQ=="
+String Functions | jstringify | {name: "Frodo", age: 50} | -unused- | -unused- | JSON.stringify({name: "Frodo", age: 50}) | '{"name":"Frodo","age":50}'
+String Functions | jparse | '{"name":"Frodo","age":50}' | -unused- | -unused- | JSON.parse('{"name":"Frodo","age":50}') | {name: "Frodo", age: 50}
