@@ -9,6 +9,11 @@ Set of Math and string manipulation operations
 
 ## Change Notes
 
+### 2025/05/28
+New boolean operations (placed in the *"calc"* section): AND, OR, NOT
+Results of *"string"* operations can be parsed to integer or fixed 
+Results of the new boolean operations can be parsed (converted) to an integer "0" or "1"
+
 ### 2024/05/25
 New string methods "JSON.parse" & "JSON.stringify" for converting from / to objects
 
@@ -57,6 +62,9 @@ Calculate | add | 2 | 5.5 | -unused- | 2 + 5.5 | 7.5
 Calculate | subtract | 5.5 | 2 | -unused- | 5.5 - 2 | 3.5
 Calculate | multiply | 2 | 5.5 | -unused- | 2 * 5.5 | 11
 Calculate | divide | 10 | 2 | -unused- | 10 / 2 | 5
+Calculate | AND (Boolean) | true[^1] | false[^1]  | -unused- | true && false | false
+Calculate | OR (Boolean) | true[^1] | false[^1] | -unused- | true || false | true
+Calculate | NOT (Boolean) | true[^1] | -unused- | -unused- | !true | false
 Math Methods | abs | -42.6 | -unused- | -unused- | Math.abs(-42.6) | 42.6
 Math Methods | ceil | 42.6 | -unused- | -unused- | Math.ceil(42.6) | 43
 Math Methods | floor | 42.6 | -unused- | -unused- | Math.floor(42.6) | 42
@@ -84,3 +92,5 @@ String Functions | sha256 | Hello, World! | -unused- | -unused- | sha256Sync("He
 String Functions | base64 | Hello, World! | -unused- | -unused- | toBase64("Hello, World!") | "SGVsbG8sIFdvcmxkIQ=="
 String Functions | jstringify | {name: "Frodo", age: 50} | -unused- | -unused- | JSON.stringify({name: "Frodo", age: 50}) | '{"name":"Frodo","age":50}'
 String Functions | jparse | '{"name":"Frodo","age":50}' | -unused- | -unused- | JSON.parse('{"name":"Frodo","age":50}') | {name: "Frodo", age: 50}
+
+[^1]: true, "true", "TRUE", "1", or 1 will be interpreted as *true*
