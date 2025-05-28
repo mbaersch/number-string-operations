@@ -22,7 +22,6 @@ New string method "split+extract": splits string at first parameter by second pa
 
 New result conversion type "Convert To String" 
 
-
 ### 2021/12/30
 New methods in "Math":
 - pow
