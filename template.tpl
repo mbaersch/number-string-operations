@@ -430,6 +430,20 @@ ___TEMPLATE_PARAMETERS___
     ],
     "defaultValue": "none",
     "help": "Choose a transformation method to ensure desired output format"
+  },
+  {
+    "type": "CHECKBOX",
+    "name": "undefinedPassThrough",
+    "checkboxText": "'undefined' pass through",
+    "simpleValueType": true,
+    "enablingConditions": [
+      {
+        "paramName": "stringMethodName",
+        "paramValue": "sha256",
+        "type": "EQUALS"
+      }
+    ],
+    "help": "Activate to not hash 'undefined' values"
   }
 ]
 
@@ -529,7 +543,12 @@ switch(tp) {
       case "match": var fnd = op1.match(op2s);          
         if (fnd) { rs = fnd[0]; }    
         break;
-      case "sha256": rs = sha256Sync(op1); break;  
+      case "sha256":
+        if (data.undefinedPassThrough === true && typeof data.op1 === "undefined") {
+          return undefined;
+        }
+        rs = sha256Sync(op1);
+        break;  
       case "base64": rs = toBase64(op1); break;  
       case "jstringify": rs = JSON.stringify(data.op1); break;  
       case "jparse": rs = JSON.parse(data.op1); break;  
@@ -558,5 +577,3 @@ scenarios: []
 ___NOTES___
 
 Created on 19.9.2021, 20:53:00
-
-
