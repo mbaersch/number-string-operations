@@ -396,6 +396,20 @@ ___TEMPLATE_PARAMETERS___
     ]
   },
   {
+    "type": "CHECKBOX",
+    "name": "undefinedPassThrough",
+    "checkboxText": "Ignore undefined / null",
+    "simpleValueType": true,
+    "enablingConditions": [
+      {
+        "paramName": "stringMethodName",
+        "paramValue": "sha256",
+        "type": "EQUALS"
+      }
+    ],
+    "help": "Activate to return unchanged input in case of \"undefined\" or \"null\" as value"
+  },
+  {
     "type": "SELECT",
     "name": "resultTransformation",
     "displayName": "Result Transformation",
@@ -430,20 +444,6 @@ ___TEMPLATE_PARAMETERS___
     ],
     "defaultValue": "none",
     "help": "Choose a transformation method to ensure desired output format"
-  },
-  {
-    "type": "CHECKBOX",
-    "name": "undefinedPassThrough",
-    "checkboxText": "'undefined' pass through",
-    "simpleValueType": true,
-    "enablingConditions": [
-      {
-        "paramName": "stringMethodName",
-        "paramValue": "sha256",
-        "type": "EQUALS"
-      }
-    ],
-    "help": "Activate to not hash 'undefined' values"
   }
 ]
 
@@ -544,10 +544,9 @@ switch(tp) {
         if (fnd) { rs = fnd[0]; }    
         break;
       case "sha256":
-        if (data.undefinedPassThrough === true && typeof data.op1 === "undefined") {
-          return undefined;
-        }
-        rs = sha256Sync(op1);
+        if (data.undefinedPassThrough === true && (data.op1 === undefined) || (data.op1 === null)) {
+          rs = data.op1;
+        } else rs = sha256Sync(op1);
         break;  
       case "base64": rs = toBase64(op1); break;  
       case "jstringify": rs = JSON.stringify(data.op1); break;  
