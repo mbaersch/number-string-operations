@@ -2,9 +2,11 @@ homepage: "https://www.markus-baersch.de"
 documentation: "https://github.com/mbaersch/number-string-operations#readme"
 versions:
   # Latest version
+  - sha: 231e132ffb5dfdaba2c9a393d48e1058544a5ea4
+    changeNotes: optionally ignores undefined values when hashing.
+  # Older versions  
   - sha: 66216cafc4760d305d38fc2830241b76517f038e
     changeNotes: added basic boolean operations.
-  # Older versions  
   - sha: f009586b3af061c18079623e7464af75d9ea304b
     changeNotes: added JSON.stringify + JSON.parse
   - sha: 48314ffa381d82b63d82988c50c1f6433166f5a1
